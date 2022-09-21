@@ -27,3 +27,7 @@ def get_prediction(payload: StockIn):
         "days": days,
         "forecast": convert(prediction_list)}
     return response_object
+
+@app.get("/ping")
+def pong():
+    return {"ping": "pong!"}

@@ -1,12 +1,42 @@
 # AWS-deployed stock predictior
-This is a 4thBrain ML Engineer course week 12 assignment repo.
+This is a 4thBrain ML Engineer course week 12 & 13 assignments repo.
+- Week 13 solution is in branch `main`
+- Week 12 solution is in branch `week12`
 
-When the machine is on, and everything works, you may run it with (remember to replace IP number):
+## Running
+Buiding an image:
 
-curl --header "Content-Type: application/json" --request POST --data '{"ticker":"MSFT", "days":7}' http://35.171.3.151:8000/predict
+docker build -t stock-prophet:1.0 .
+
+Running the image:
+
+docker run -d --name sp -p 8000:80 stock-prophet:1.0
 
 
-## Additional questions
+## Additional questions (Week 13)
+
+### What does it mean to create a Docker image and why do we use Docker images?
+To create a Docker image is to create a read-only template containing instructions for creating a container. The main function of an image is to provide a convenient way to package up applications and preconfigured server environments. Personally, I am using docker images for the three main purposes:
+- to create a package with a small app that can be easily deployed/incorporated in a larger solution
+- to create an environment for data science purposes (if there are more people involved in a project, it saves time)
+- to create and environment for teaching purposes.
+
+### Please explain what is the difference from a Container vs a Virtual Machine?
+Technically speaking VMs virtualize the entire machine whereas containers virtualize only the layers above the operating system (bins, libs, apps). Practically, containers are lighter, thus more suitable for building smaller solutions (like microservices). Additionally, working with containers is usually faster. Virtual machines on the other hand are more isolated, they can be treated as a physical machines. It provides more flexibility.
+
+### What are 5 examples of container orchestration tools (please list tools)?
+1. Kubertentes
+2. Docker Swarm
+3. Openshift
+4. Rancher
+5. Mesos
+
+### How does a Docker image differ from a Docker container?
+An image is a template for a container. Personally I think about an image as a class, and about a container as an instance of this class.
+
+
+
+## Additional questions (Week 12)
 
 ### How does the Prophet Algorithm differ from an LSTM?
 Prophet is an additive regression model with a piecewise linear or logistic growth curve trend. It includes a yearly seasonal component modeled using Fourier series and a weekly seasonal component modeled using dummy variables. 

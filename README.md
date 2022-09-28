@@ -6,12 +6,19 @@ This is a 4thBrain ML Engineer course week 12 & 13 assignments repo.
 ## Running
 Buiding an image:
 
-docker build -t stock-prophet:1.0 .
+`docker build -t stock-prophet:1.0 .`
 
 Running the image:
 
-docker run -d --name sp -p 8000:80 stock-prophet:1.0
+`docker run -d --name sp -p 8000:80 stock-prophet:1.0`
 
+Cheching an image (browser link):
+
+`http://localhost:8000/ping`
+
+Obtainig predictions (curl):
+
+`curl --header "Content-Type: application/json" --request POST --data '{"ticker":"MSFT", "days":14}' http://localhost:8000/predict`
 
 ## Additional questions (Week 13)
 
